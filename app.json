@@ -17,6 +17,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android":{
+      "package":"com.gsbenevides.emailcreator"
+    },
     "ios": {
       "supportsTablet": true
     },
