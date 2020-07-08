@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles'
-import { View, Text, Keyboard } from "react-native";
+import { View , Keyboard } from "react-native";
 import {TextInput, FAB, Button} from 'react-native-paper'
 import { WebView } from 'react-native-webview'
 import * as utils from './utils'
@@ -29,6 +29,7 @@ const Send:React.FC = ()=>{
   })
   const [loading, setLoading] = React.useState(false)
   const [html, setHtml] = React.useState('')
+  const iframeRef = React.useRef<HTMLIFrameElement | null>(null)
 
   function handleSendMessage(){
     Keyboard.dismiss()
@@ -99,6 +100,7 @@ const Send:React.FC = ()=>{
           label={translations.translate('sendHtmlEmail.textInputSubject')}
         />
         <Button
+          style={styles.htmlButton}
           onPress={handleFileSelector}
           accessibilityStates={{}}>{
             translations.translate('sendHtmlEmail.buttonSelectFile')

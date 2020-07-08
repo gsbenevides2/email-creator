@@ -1,6 +1,6 @@
 {
   "expo":{
-    "name": "email-creator",
+    "name": "Email Creator",
     "platforms":["android"],
     "slug": "email-creator",
     "version": "1.0.0",

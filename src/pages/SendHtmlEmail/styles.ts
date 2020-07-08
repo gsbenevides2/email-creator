@@ -8,6 +8,9 @@ export default StyleSheet.create({
   textInput:{
     marginBottom:5
   },
+  htmlButton:{
+    marginBottom:5
+  },
   fab:{
     position: 'absolute',
     margin: 16,

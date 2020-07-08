@@ -1,12 +1,12 @@
 import React from 'react';
 import Routes from './src/routes'
-import {Provider} from 'react-native-paper'
+import {ThemeProvider} from './src/theme'
 
 const App:React.FC = ()=>{
   return (
-    <Provider>
+    <ThemeProvider>
       <Routes/>
-    </Provider>
+    </ThemeProvider>
   );
 }
 
