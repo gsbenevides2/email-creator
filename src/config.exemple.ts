@@ -5,9 +5,9 @@ interface Config {
   iosClientId:string;
 }
 
-const config:Config ={
-  androidClientId:'',
-  iosClientId:''
+const config:Config = {
+  androidClientId: '',
+  iosClientId: ''
 }
 
 export default config

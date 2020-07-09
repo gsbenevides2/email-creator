@@ -1,15 +1,17 @@
 import React from 'react'
-import {Appbar} from 'react-native-paper'
-import {StatusBar} from 'expo-status-bar'
-import {StackHeaderProps} from '@react-navigation/stack'
-import {useTheme} from '../theme'
+import { Appbar } from 'react-native-paper'
 
-const TopAppBarComponent:React.FC<StackHeaderProps> = props=>{
+import { StackHeaderProps } from '@react-navigation/stack'
+import { StatusBar } from 'expo-status-bar'
+
+import { useTheme } from '../theme'
+
+const TopAppBarComponent:React.FC<StackHeaderProps> = props => {
   const theme = useTheme()
-  const {options} = props.scene.descriptor
-  const {route} = props.scene
+  const { options } = props.scene.descriptor
+  const { route } = props.scene
 
-  const title = 
+  const title =
     options.title ||
     options.headerTitle ||
     route.name
@@ -18,7 +20,7 @@ const TopAppBarComponent:React.FC<StackHeaderProps> = props=>{
     <>
       <StatusBar style='inverted'/>
       <Appbar.Header accessibilityStates={{}}>
-        <Appbar.Content 
+        <Appbar.Content
           accessibilityStates={{}} title={title}/>
         <Appbar.Action
           accessibilityStates={{}}

@@ -1,21 +1,22 @@
-import React,{Dispatch, SetStateAction} from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
+import { AsyncStorage } from 'react-native'
 import {
   Provider,
   DefaultTheme as DefaultPaperTheme,
   DarkTheme as DarkPaperTheme,
   Theme as PaperTheme
 } from 'react-native-paper'
+
 import {
   NavigationContainer,
   DefaultTheme as DefaultNavigationTheme,
   DarkTheme as DarkNavigationTheme,
   Theme as NavigationTheme
 } from '@react-navigation/native'
-import { AsyncStorage } from "react-native";
 
 interface Context {
   theme:boolean;
-  setTheme:Dispatch<SetStateAction<boolean>>
+  setTheme?:Dispatch<SetStateAction<boolean>>
 }
 
 const defaultNavigationTheme:NavigationTheme = DefaultNavigationTheme
@@ -35,25 +36,23 @@ darkPaperTheme.colors.accent = '#c158dc'
 darkNavigationTheme.colors.primary = '#c158dc'
 
 const ThemeContext = React.createContext<Context>({
-  theme:false,
-  setTheme:()=>{}
+  theme: false
 })
 
-
-export const ThemeProvider:React.FC = props=>{
+export const ThemeProvider:React.FC = props => {
   const [theme, setTheme] = React.useState<boolean>(false)
 
-  async function load(){
+  async function load () {
     const data = await AsyncStorage.getItem('darkMode')
-    if(data === 'true') setTheme(true)
+    if (data === 'true') setTheme(true)
   }
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     load()
   })
 
   return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <Provider theme={theme ? darkPaperTheme : defaultPaperTheme}>
         <NavigationContainer theme={theme ? darkNavigationTheme : defaultNavigationTheme}>
           {props.children}
@@ -63,13 +62,17 @@ export const ThemeProvider:React.FC = props=>{
   )
 }
 
-export function useTheme(){
+type UseThemeType = {
+  toogle:()=>void
+}
+
+export function useTheme ():UseThemeType {
   const Context = React.useContext(ThemeContext)
-  function toogle(){
+  function toogle () {
     const newTheme = !Context.theme
 
-    AsyncStorage.setItem('darkMode',String(newTheme))
-    Context.setTheme(newTheme)
+    AsyncStorage.setItem('darkMode', String(newTheme))
+    if (Context.setTheme) Context.setTheme(newTheme)
   }
-  return {toogle}
+  return { toogle }
 }

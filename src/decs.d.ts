@@ -1,3 +1,2 @@
-declare module "mimemessage"
-declare module "react-native-base64"
-
+declare module 'mimemessage'
+declare module 'react-native-base64'

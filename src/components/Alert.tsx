@@ -1,6 +1,6 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Button, Paragraph, Dialog, Portal } from 'react-native-paper';
+import React from 'react'
+import { View } from 'react-native'
+import { Button, Paragraph, Dialog, Portal } from 'react-native-paper'
 
 interface Props {
   title:string;
@@ -9,13 +9,11 @@ interface Props {
   onClose:()=>void;
 }
 
-
-const Alert:React.FC<Props> =  props=> {
-
+const Alert:React.FC<Props> = props => {
   return (
     <View>
       <Portal>
-        <Dialog visible={props.open} 
+        <Dialog visible={props.open}
           onDismiss={props.onClose}>
           <Dialog.Title accessibilityStates={{}}>{props.title}</Dialog.Title>
           <Dialog.Content>
@@ -27,7 +25,7 @@ const Alert:React.FC<Props> =  props=> {
         </Dialog>
       </Portal>
     </View>
-  );
-};
+  )
+}
 
-export default Alert;
+export default Alert

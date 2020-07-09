@@ -1,20 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding:12
+    padding: 12
   },
-  textInput:{
-    marginBottom:5
+  textInput: {
+    marginBottom: 5
   },
-  htmlButton:{
-    marginBottom:5
+  htmlButton: {
+    marginBottom: 5
   },
-  fab:{
+  fab: {
     position: 'absolute',
     margin: 16,
     right: 0,
-    bottom: 0,
+    bottom: 0
   }
-});
+})
