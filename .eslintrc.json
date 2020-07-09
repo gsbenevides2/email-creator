@@ -24,6 +24,7 @@
     "import-helpers"
   ],
   "rules": {
+    "react/prop-types":"off",
     "import-helpers/order-imports":["warn",{
       "newlinesBetween":"always",
       "groups":["/^react/","module",["parent","sibling","index"]],
